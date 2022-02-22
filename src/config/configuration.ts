@@ -3,8 +3,11 @@ export default () => ({
   jwt: {
     secret: process.env.JWT_SECRET || 'jwtSecretKey',
   },
-  database: {
-    host: process.env.DATABASE_HOST,
+  db: {
+    host: process.env.DATABASE_HOST || 'localhost',
+    name: process.env.DB_NAME || 'dbpfa',
+    username: process.env.DATABASE_USER || 'postgres',
+    password: process.env.DATABASE_PASSWORD,
     port: parseInt(process.env.DATABASE_PORT, 10) || 5432,
   },
 });
