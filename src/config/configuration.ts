@@ -8,7 +8,7 @@ export default () => ({
     host: process.env.DATABASE_HOST || 'localhost',
     name: process.env.DATABASE_NAME || 'dbpfa',
     username: process.env.DATABASE_USER || 'postgres',
-    password: process.env.DATABASE_PASSWORD || 'fLDKJJLFEE!!!9932',
+    password: process.env.DATABASE_PASSWORD || 'dbpsswrd',
     port: parseInt(process.env.DATABASE_PORT, 10) || 5433,
   },
 });
