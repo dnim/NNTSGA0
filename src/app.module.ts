@@ -26,7 +26,12 @@ const conf = configuration();
       password: conf.db.password,
       database: conf.db.name,
       entities: [User, Account, Company, Role, Membership],
-      synchronize: true,
+      migrationsTableName: 'custom_migration_table',
+      migrations: ['migration/*.ts'],
+      cli: {
+        migrationsDir: 'migration',
+      },
+      // synchronize: true,
       verboseRetryLog: true,
     }),
     AuthModule,
