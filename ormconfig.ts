@@ -1,14 +1,22 @@
+import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import configuration from './src/config/configuration';
+
+const conf = configuration();
+
 export default {
+  name: 'default',
   type: 'postgres',
-  host: 'localhost',
-  port: 5433,
-  username: 'postgres',
-  password: 'dbpsswrd',
-  database: 'dbpfa',
-  migrationsTableName: '_migration',
+  host: conf.db.host,
+  port: conf.db.port,
+  username: conf.db.username,
+  password: conf.db.password,
+  database: conf.db.name,
   entities: ['**/*.entity{.ts,.js}'],
-  migrations: ['src/migration/*.ts'],
+  migrationsTableName: '_migration',
+  migrations: ['migration/*.ts'],
   cli: {
     migrationsDir: 'migration',
   },
-};
+  // synchronize: true,
+  verboseRetryLog: true,
+} as TypeOrmModuleOptions;
