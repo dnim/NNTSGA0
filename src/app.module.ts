@@ -2,15 +2,16 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './user/users.module';
+import { UsersModule } from './orm/user/users.module';
 import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
-import { User } from './user/user.entity';
-import { Account } from './account/account.entity';
-import { UsersController } from './user/users.controller';
-import { UsersService } from './users/users.service';
+import { User } from './orm/user/user.entity';
+import { Account } from './orm/account/account.entity';
+import { Company } from './orm/company/company.entity';
+import { Role } from './orm/role/role.entity';
+import { Membership } from './orm/membership/membership.entity';
 
 const conf = configuration();
 
@@ -24,7 +25,7 @@ const conf = configuration();
       username: conf.db.username,
       password: conf.db.password,
       database: conf.db.name,
-      entities: [User, Account],
+      entities: [User, Account, Company, Role, Membership],
       synchronize: true,
       verboseRetryLog: true,
     }),
