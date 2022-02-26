@@ -1,0 +1,13 @@
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+
+@Entity()
+export class Account {
+  @PrimaryGeneratedColumn({ name: 'ID' })
+  id: number;
+
+  @Column()
+  name: string;
+
+  @Column('int')
+  planLevel: number;
+}
