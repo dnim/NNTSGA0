@@ -13,7 +13,7 @@ export default {
   database: conf.db.name,
   entities: ['**/*.entity{.ts,.js}'],
   migrationsTableName: '_migration',
-  migrations: ['migration/*.ts'],
+  migrations: ['src/migration/*.ts'],
   cli: {
     migrationsDir: 'migration',
   },
