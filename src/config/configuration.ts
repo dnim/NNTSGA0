@@ -6,6 +6,7 @@ export default () => ({
   jwt: {
     secret: process.env.JWT_SECRET || 'jwtSecretKey',
   },
+  // default => local
   db: {
     host: process.env.DATABASE_HOST || 'localhost',
     name: process.env.DATABASE_NAME || 'dbpfa',

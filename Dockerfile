@@ -3,6 +3,7 @@ FROM node:14-alpine As development
 WORKDIR /usr/src/app
 
 COPY package*.json ./
+COPY .env ./
 
 RUN npm install --only=development
 
@@ -18,6 +19,7 @@ ENV NODE_ENV=${NODE_ENV}
 WORKDIR /usr/src/app
 
 COPY package*.json ./
+COPY .env ./
 
 RUN npm install --only=production
 
