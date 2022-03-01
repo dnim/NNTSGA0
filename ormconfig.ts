@@ -11,12 +11,13 @@ export default {
   username: conf.db.username,
   password: conf.db.password,
   database: conf.db.name,
-  entities: ['**/*.entity{.ts,.js}'],
+  entities: ['dist/**/*.entity.js'],
   migrationsTableName: '_migration',
-  migrations: ['src/migration/*.ts'],
+  migrations: ['dist/migration/*.js'],
   cli: {
     migrationsDir: 'migration',
   },
+  retryAttempts: 3,
   // synchronize: true,
   verboseRetryLog: true,
 } as TypeOrmModuleOptions;
